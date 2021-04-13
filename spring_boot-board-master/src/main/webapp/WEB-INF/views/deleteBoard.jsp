@@ -154,6 +154,32 @@ h1 {
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 style="color: green">삭제된 게시물</h2>
+				
+				<!-- 검색 -->
+				<form class="well form-search" action="/web/saveBoard/search"
+					method="GET">
+					<div class="search">
+						<input name="keyword" type="text"
+							class="input-medium search-query" placeholder="검색어를 입력해주세요">
+						<!-- 검색어입력 -->
+						<button>검색하기</button>
+
+					</div>
+				</form>
+				<!-- 검색 끝-->
+				
+				<!-- 페이지네이션 -->
+				<ul class="pagination">
+					<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+				<!-- 페이지네이션 끝 -->
+				
 				<table class="table table-hover table-striped" id="example"
 					class="display" style="width: 50%">
 					<thead>

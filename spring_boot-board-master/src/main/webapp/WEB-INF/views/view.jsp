@@ -155,6 +155,8 @@ h1 {
 		}
 	});
 </script>
+
+<!-- 완료 및 임시저장 글목록 -->
 <script type="text/javascript">
 	$(document)
 			.ready(
