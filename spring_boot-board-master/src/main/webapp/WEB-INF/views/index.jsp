@@ -32,6 +32,36 @@
 <script
 	src="https://cdn.rawgit.com/mladenplavsic/bootstrap-navbar-sidebar/3bd282bd/docs/docs.js"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#writeBtn").click(function(){
+    	location.href ="write";
+    })
+    $.ajax({url: "boardList", success: function(result){  
+    	console.log(result);
+    	
+        var html = "";
+    	result.forEach(function(item){
+        	html+= "<tr> <td><a href = 'view?idx=" + item.idx + "'>" + item.title + "</a>"
+        	+ "</td>"+"<td>"+ item.contents + "</tr>"
+        })
+       $("#listArea1").append(html);
+       $("#listArea2").append(html);
+       $("#listArea3").append(html);
+       $('#example').DataTable();
+     }});
+     $("#deleteBtn").click(function(){
+    	location.href ="write";
+     })
+} );
+/* 
+html+= "<tr> <td><a href = 'view?idx=" + item.idx + "'>" + item.title + "</a></td> </tr>"
++ "<button type='button' class='btn btn-primary' align='right' id = 'deleteBtn'>글삭제</button></td> </tr>"
+<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+*/
+</script>	
+
 <style>
 .nav-link {
 	color: white !important;
@@ -42,6 +72,76 @@
 	background-color: #FF0000;
 	border-color: #000;
 }
+
+.cardwrap {
+  display: flex;
+  width: 100%;
+  max-width: 35rem;
+  height: auto;
+  max-height: 33.5rem;
+  flex-direction: column;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.boardwrap{
+      width: 100%;
+    /* height: auto; */
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5dc;
+    border-bottom: solid 1px;
+    border-radius: 3px;
+  }
+  
+  .boardwrap:hover {
+    	 background-color: #ffffff;
+         opacity: 0.5;
+  }
+
+  
+.textwrap {
+	width: 100%;
+ 	height: 5rem;
+    display: flex;
+  	justify-content : space-around;
+    background: white;
+    border-radius: 0 0 1rem 1rem;
+	}
+	
+.cardwrapper {
+	display: flex;
+    position: relative;
+    width: 100%;
+    
+    padding: 0 10rem;
+    justify-content: space-between;
+}
+
+.left-text {
+	text-align: center;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    color: black;
+
+}
+
+.right-text {
+	text-align: center;
+    font-size: large;
+    color: black;
+    display: flex;
+    align-items: center;
+
+}
+.table {
+	width: 100% !important;
+}
+
 </style>
 </head>
 <body>
@@ -84,12 +184,8 @@
 							<li><a href="deleteBoard" style="color: bk">삭제 게시판</a></li>
 						</ul></li>
 
-
-
-
 				</ul>
 			</div>
-
 
 		</div>
 	</nav>
@@ -97,23 +193,87 @@
 	<p style="margin-left: 50px">
 	<h2 style="color: green">Dashboard</h2>
 	</p>
-	<div class="container" style="margin-top: 100px">
-		<div class="row">
-			<div class="card-deck">
-				<div class="card bg-info" style="width: 300px; height: 300px;">
-					<div class="card-body">완료 게시글</div>
-				</div>
-
-				<div class="card bg-warning" style="width: 300px">
-					<div class="card-body">임시저장 게시글</div>
-				</div>
-				<div class="card bg-danger" style="width: 300px">
-					<div class="card-body">삭제 게시글</div>
+	
+	<div class = "cardwrapper">
+				<!--  카드 컴포넌트 -->
+		<div class = "cardwrap">
+			<div class = "boardwrap" onClick = "location.href='tempBoard'">
+				<div class="container" style="margin-top:30px">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-hover table-striped" id="example" class="display" style="width:50%">
+						        <thead>
+						            <tr>
+						                <th>제목</th>
+						                <th>작성자</th>
+						            </tr>
+						        </thead>
+						        <tbody id = "listArea1">
+						        </tbody>
+						    </table>
+						</div>
+					</div>
 				</div>
 			</div>
-
+			<div class = "textwrap">
+					<div class = "left-text">임시저장</div>
+					<div class = "right-text">건수 : 100개</div>
+			</div>
 		</div>
+		
+			<!--  카드 컴포넌트 -->
+		<div class = "cardwrap">
+			<div class = "boardwrap" onClick = "location.href='saveBoard'" >
+					<div class="container" style="margin-top:30px">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-hover table-striped" id="example" class="display" style="width:50%">
+						        <thead>
+						            <tr>
+						                <th>제목</th>
+						                <th>작성자</th>
+						            </tr>
+						        </thead>
+						        <tbody id = "listArea2">
+						        </tbody>
+						    </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = "textwrap">
+					<div class = "left-text">완료</div>
+					<div class = "right-text">건수 : 100개</div>
+			</div>
+		</div>
+		
+			<!--  카드 컴포넌트 -->
+		<div class = "cardwrap">
+			<div class = "boardwrap" onClick = "location.href='deleteBoard'">
+				<div class="container" style="margin-top:30px">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-hover table-striped" id="example" class="display" style="width:50%">
+						        <thead>
+						            <tr>
+						                <th>제목</th>
+						                <th>작성자</th>
+						            </tr>
+						        </thead>2
+						        <tbody id = "listArea3">
+						        </tbody>
+						    </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = "textwrap">
+						<div class = "left-text">삭제</div>
+					<div class = "right-text">개수 : 100개</div>
+			</div>
 	</div>
+	</div>
+	
 
 </body>
 </html>

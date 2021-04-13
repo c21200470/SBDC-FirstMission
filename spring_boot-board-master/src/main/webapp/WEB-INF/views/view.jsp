@@ -111,7 +111,7 @@
 		url : "boardView?idx=" + IDX,
 		success : function(result) {
 			$("#image").append(
-					'<img src="resources/' + result.image
+					'<img src="resources/image' + result.image
 							+ '" style="width: 100%;">');
 			$("#title").text(result.title);
 			$("#contents").text(result.contents);
