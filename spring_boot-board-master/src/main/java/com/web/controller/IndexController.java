@@ -77,12 +77,13 @@ public class IndexController {
 	public String writeAction(HttpServletRequest req, @RequestParam("file") MultipartFile file,
 			@RequestParam("title") String title, @RequestParam("contents") String contents)
 			throws IllegalStateException, IOException {
-		String PATH = req.getSession().getServletContext().getRealPath("/resources/image");
+		String PATH = req.getSession().getServletContext().getRealPath("/");
 		System.out.println(PATH);
 		if (!file.getOriginalFilename().isEmpty()) {
 			file.transferTo(new File(PATH + file.getOriginalFilename()));
+			System.out.print(file.getOriginalFilename());
 		}
-		s.addBoard(new Board(0, title, contents, file.getOriginalFilename()));
+		s.addBoard(new Board(0, title, contents, file.getOriginalFilename())); // 생성자만들어서 dto
 		return "board";
 	}
 
@@ -92,13 +93,15 @@ public class IndexController {
 		return s.getBoard();
 	}
 
-	@RequestMapping(value = "/boardView", method = RequestMethod.GET)
+	@RequestMapping(value = "/boardView", method = RequestMethod.GET) // 상세보기 API
 	@ResponseBody
 	public Board boardList(@RequestParam("idx") int idx) {
 		return s.getBoardOne(idx);
 	}
 
-	@RequestMapping(value = "/replyList", method = RequestMethod.GET)
+	/* 댓글작성 api */
+
+	@RequestMapping(value = "/replyList", method = RequestMethod.GET) // 댓글
 	@ResponseBody
 	public List<Reply> replyList(@RequestParam("idx") int boardIdx) {
 		return s.getReply(boardIdx);

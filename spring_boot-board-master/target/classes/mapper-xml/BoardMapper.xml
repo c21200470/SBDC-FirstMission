@@ -57,12 +57,14 @@ CREATE TABLE `tb_board` (
 					board_idx,
 					reply_idx,
 					contents
+					status
 				)
 	    	VALUES
 	   			(
 	   				#{boardIdx},
 	   				#{replyIdx},
-	   				#{contents}
+	   				#{contents},
+	   				
 				)
     </insert>
 	<select id="getReply" resultType="com.web.domain.Reply">
