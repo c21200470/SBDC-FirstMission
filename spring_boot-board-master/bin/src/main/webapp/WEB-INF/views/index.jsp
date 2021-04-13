@@ -42,11 +42,6 @@
 	background-color: #FF0000;
 	border-color: #000;
 }
-
-.fakeimg {
-	height: 200px;
-	background: #aaa;
-}
 </style>
 </head>
 <body>
@@ -84,39 +79,41 @@
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="mainBoard" style="color: bk">메인 게시판</a></li>
-							<li><a href="board" style="color: bk">임시저장 게시판</a></li>
-							<li><a href="board" style="color: bk">완료 게시판</a></li>
-							<li><a href="board" style="color: bk">삭제 게시판</a></li>
+							<li><a href="tempBoard" style="color: bk">임시저장 게시판</a></li>
+							<li><a href="saveBoard" style="color: bk">완료 게시판</a></li>
+							<li><a href="deleteBoard" style="color: bk">삭제 게시판</a></li>
 						</ul></li>
-						
+
+
+
+
 				</ul>
 			</div>
+
+
 		</div>
 	</nav>
 
-	<!-- 글쓰기 기능 -->
-	<div class="container" style="margin-top: 30px">
+	<p style="margin-left: 50px">
+	<h2 style="color: green">Dashboard</h2>
+	</p>
+	<div class="container" style="margin-top: 100px">
 		<div class="row">
-			<div class="col-sm-12">
-				<h2>글쓰기</h2>
-				<form action="writeAction" method="POST" enctype="multipart/form-data">
-					<div class="form-group">
-						<label for="usr">제목:</label> <input type="text"
-							class="form-control" id="title" name="title">
-					</div>
-					<div class="form-group">
-						<input type="file" class="form-control-file border" name="file">
-					</div>
-					<div class="form-group">
-						<label for="comment">내용:</label>
-						<textarea class="form-control" rows="5" id="contents"
-							name="contents"></textarea>
-					</div>
-					<button type="submit" class="btn btn-primary">글 쓰기</button>
-					<button type="button" class="btn btn-primary" id="tempSave">임시저장</button>
-				</form>
+			<div class="card-deck">
+				<div class="card bg-info" style="width: 300px; height: 300px;">
+					<div class="card-body">완료 게시글</div>
+				</div>
+
+				<div class="card bg-warning" style="width: 300px">
+					<div class="card-body">임시저장 게시글</div>
+				</div>
+				<div class="card bg-danger" style="width: 300px">
+					<div class="card-body">삭제 게시글</div>
+				</div>
 			</div>
+
 		</div>
 	</div>
+
 </body>
 </html>

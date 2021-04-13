@@ -88,7 +88,7 @@
 							<li><a href="board" style="color: bk">완료 게시판</a></li>
 							<li><a href="board" style="color: bk">삭제 게시판</a></li>
 						</ul></li>
-						
+
 				</ul>
 			</div>
 		</div>
