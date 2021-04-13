@@ -67,7 +67,9 @@
 				b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
 		}
 		return b;
-	}
+	} // 연구해보기
+	
+	/* 댓글관련 */
 	function drawReply(replys) {
 		$("#cnt").text("등록된 댓글 - " + replys.length)
 		var html = '';
@@ -107,11 +109,13 @@
 					}
 				})
 	}
+	
+	
 	$.ajax({
 		url : "boardView?idx=" + IDX,
 		success : function(result) {
 			$("#image").append(
-					'<img src="resources/image' + result.image
+					'<img src="C:/Users/USER/Documents/workspace-spring-tool-suite-4-4.10.0.RELEASE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/spring_boot-board-master' + result.image
 							+ '" style="width: 100%;">');
 			$("#title").text(result.title);
 			$("#contents").text(result.contents);

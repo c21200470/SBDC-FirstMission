@@ -57,6 +57,7 @@ $(document).ready(function() {
     })
     $.ajax({url: "boardList", success: function(result){             
         var html = "";
+        
     	result.forEach(function(item){
         	html+= "<tr> <td><a href = 'view?idx=" + item.idx + "'>" + item.title + "</a>"
         	+ "<button type='button' class='btn btn-danger' style='float: right;' id = 'deleteBtn' onclick = 'location.href = 'view?idx='" + item.idx +"'>글삭제</button></td> </tr>"
