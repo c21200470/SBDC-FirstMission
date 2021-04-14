@@ -28,6 +28,7 @@
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0
 		rgba(0, 0, 0, .1);
 }
+
 .bd-sidebar {
 	position: fixed;
 	top: 4rem;
@@ -39,14 +40,17 @@
 	min-width: 160px;
 	max-width: 220px;
 }
+
 .bd-sidebar .nav {
 	display: block;
 }
+
 .bd-sidebar .nav>li>a {
 	display: block;
 	padding: .25rem 1.5rem;
 	font-size: 90%;
 }
+
 .footer {
 	width: 100%;
 	height: 100px;
@@ -55,82 +59,110 @@
 	text-align: center;
 	color: black;
 }
+
 div#head {
 	position: absolute;
 	left: 40%;
 	top: 30%
 }
+
 div#user {
 	position: absolute;
 	right: 3%;
 	top: 30%
 }
+
 ul#menu {
 	position: absolute;
 	top: 8%
 }
-.dropdown .dropdown-menu a:hover {
-	color: #000 !important;
-	background-color: #FF0000;
-	border-color: #000;
+
+.dropdown
+{
+background-color: teal;
 }
- 
+
+
+.dropdown-menu {
+color: white;
+background-color:#313635;
+}
+
+.dropdown-menu li a{
+		text-decoration: none;
+		display: block;
+		color: #000;
+		padding: 8px 15px 8px 15px;
+}
+
+
+.dropdown-menu a:hover {
+	color: #ffffff !important;
+	background:teal;
+	border-color: #42423e;
+}
+
 .cardwrapper {
 	display: flex;
-    position: relative;
-    width: 70%;
-    margin-left: 300px;
-    padding: 3rem 3rem;
-    justify-content: space-between;
+	position: relative;
+	width: 70%;
+	margin-left: 300px;
+	padding: 3rem 3rem;
+	justify-content: space-between;
 }
+
 .cardwrap {
-  display: flex;
-  width: 400px;
-  height: 450px;
-  flex-direction: column;
-  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.15);
-  border-radius: 1rem;
-  cursor: pointer;
+	display: flex;
+	width: 400px;
+	height: 450px;
+	flex-direction: column;
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.15);
+	border-radius: 2rem;
+	cursor: pointer;
 }
-.boardwrap{
-    width: 100%;
-    /* height: auto; */
-    height: 30rem;
-    display: flex;
-    align-items: top;
-    justify-content: center;
-    background: #f5f5dc;
-    border-bottom: solid 1px;
-    border-radius: 3px;
-  }
-  
-  .boardwrap:hover {
-    	 background-color: #ffffff;
-         opacity: 0.5;
-  }
+
+.boardwrap {
+	width: 100%;
+	/* height: auto; */
+	height: 370px;
+	display: flex;
+	align-items: top;
+	justify-content: center;
+	background: #f5f5dc;
+	/*border-bottom: solid 1px;*/
+	border-radius: 0 0 1rem 1rem;
+}
+
+.boardwrap:hover {
+	background-color: #ffffff;
+	opacity: 0.5;
+}
+
 .textwrap {
 	width: 100%;
- 	height: 5rem;
-    display: flex;
-  	justify-content : space-around;
-    background: #008080;
-    border-radius: 0 0 1rem 1rem;
-	}
-	
+	height: 5rem;
+	display: flex;
+	justify-content: space-around;
+	background: #008080;
+	border-radius: 1rem 1rem 0 0;
+}
+
 .left-text {
 	text-align: center;
-    font-size: large;
-    display: flex;
-    align-items: center;
- color: white;
+	font-size: large;
+	display: flex;
+	align-items: center;
+	color: white;
 }
+
 .right-text {
 	text-align: center;
-    font-size: large;
- color: white;
-    display: flex;
-    align-items: center;
+	font-size: large;
+	color: white;
+	display: flex;
+	align-items: center;
 }
+
 .table {
 	width: 100% !important;
 }
@@ -198,10 +230,9 @@ ul#menu {
 						aria-expanded="false" style="color: white; font-size: 20px;">게시판
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="mainBoard" style="color: bk">메인 게시판</a></li>
-							<li><a href="tempBoard" style="color: bk">임시저장 게시판</a></li>
-							<li><a href="saveBoard" style="color: bk">완료 게시판</a></li>
-							<li><a href="deleteBoard" style="color: bk">삭제 게시판</a></li>
+							<li style="text-align: center"><a href="saveBoard" style="color: white">완료 게시판</a></li>
+							<li style="text-align: center"><a href="tempBoard" style="color: white">임시저장 게시판</a></li>
+							<li style="text-align: center"><a href="deleteBoard" style="color: white">삭제 게시판</a></li>
 						</ul></li>
 				</ul>
 				<br>
@@ -217,7 +248,10 @@ ul#menu {
 	<div class="cardwrapper">
 		<!--  카드 컴포넌트 -->
 		<div class="cardwrap">
-			
+			<div class="textwrap">
+				<div class="left-text">임시저장</div>
+				<div class="right-text">건수 : 100개</div>
+			</div>
 			<div class="boardwrap" onClick="location.href='tempBoard'">
 				<div class="container" style="margin-top: 30px">
 					<div class="row">
@@ -237,14 +271,15 @@ ul#menu {
 					</div>
 				</div>
 			</div>
-			<div class="textwrap">
-				<div class="left-text">임시저장</div>
-				<div class="right-text">건수 : 100개</div>
-			</div>
+
 		</div>
 
 		<!--  카드 컴포넌트 -->
 		<div class="cardwrap">
+			<div class="textwrap">
+				<div class="left-text">완료</div>
+				<div class="right-text">건수 : 100개</div>
+			</div>
 			<div class="boardwrap" onClick="location.href='saveBoard'">
 				<div class="container" style="margin-top: 30px">
 					<div class="row">
@@ -264,15 +299,17 @@ ul#menu {
 					</div>
 				</div>
 			</div>
-			<div class="textwrap">
-				<div class="left-text">완료</div>
-				<div class="right-text">건수 : 100개</div>
-			</div>
+
 		</div>
 
 		<!--  카드 컴포넌트 -->
 		<div class="cardwrap">
+			<div class="textwrap">
+				<div class="left-text">삭제</div>
+				<div class="right-text">개수 : 100개</div>
+			</div>
 			<div class="boardwrap" onClick="location.href='deleteBoard'">
+
 				<div class="container" style="margin-top: 30px">
 					<div class="row">
 						<div class="col-sm-12">
@@ -291,13 +328,10 @@ ul#menu {
 					</div>
 				</div>
 			</div>
-			<div class="textwrap">
-				<div class="left-text">삭제</div>
-				<div class="right-text">개수 : 100개</div>
-			</div>
+
 		</div>
 	</div>
-	
+
 	<footer class="footer">
 		<p style="color: black; text-align: left;">
 		<div

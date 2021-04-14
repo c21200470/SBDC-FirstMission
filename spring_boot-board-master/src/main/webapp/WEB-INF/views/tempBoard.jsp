@@ -77,10 +77,94 @@ ul#menu {
 	top: 8%
 }
 
-.dropdown .dropdown-menu a:hover {
-	color: #000 !important;
-	background-color: #FF0000;
-	border-color: #000;
+.dropdown
+{
+background-color: teal;
+}
+
+
+.dropdown-menu {
+color: white;
+background-color:#403f3f;
+}
+
+.dropdown-menu li a{
+		text-decoration: none;
+		display: block;
+		color: #000;
+		padding: 8px 15px 8px 15px;
+}
+
+
+.dropdown-menu a:hover {
+	color: #ffffff !important;
+	background:teal;
+	border-color: #42423e;
+}
+
+.cardwrapper {
+	display: flex;
+	position: relative;
+	width: 70%;
+	margin-left: 300px;
+	padding: 3rem 3rem;
+	justify-content: space-between;
+}
+
+.cardwrap {
+	display: flex;
+	width: 400px;
+	height: 450px;
+	flex-direction: column;
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.15);
+	border-radius: 2rem;
+	cursor: pointer;
+}
+
+.boardwrap {
+	width: 100%;
+	/* height: auto; */
+	height: 370px;
+	display: flex;
+	align-items: top;
+	justify-content: center;
+	background: #f5f5dc;
+	/*border-bottom: solid 1px;*/
+	border-radius: 0 0 1rem 1rem;
+}
+
+.boardwrap:hover {
+	background-color: #ffffff;
+	opacity: 0.5;
+}
+
+.textwrap {
+	width: 100%;
+	height: 5rem;
+	display: flex;
+	justify-content: space-around;
+	background: #008080;
+	border-radius: 1rem 1rem 0 0;
+}
+
+.left-text {
+	text-align: center;
+	font-size: large;
+	display: flex;
+	align-items: center;
+	color: white;
+}
+
+.right-text {
+	text-align: center;
+	font-size: large;
+	color: white;
+	display: flex;
+	align-items: center;
+}
+
+.table {
+	width: 100% !important;
 }
 </style>
 <script type="text/javascript">
@@ -145,10 +229,9 @@ ul#menu {
 						aria-expanded="false" style="color: white; font-size: 20px;">게시판
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="mainBoard" style="color: bk">메인 게시판</a></li>
-							<li><a href="tempBoard" style="color: bk">임시저장 게시판</a></li>
-							<li><a href="saveBoard" style="color: bk">완료 게시판</a></li>
-							<li><a href="deleteBoard" style="color: bk">삭제 게시판</a></li>
+							<li style="text-align: center"><a href="saveBoard" style="color: white">완료 게시판</a></li>
+							<li style="text-align: center"><a href="tempBoard" style="color: white">임시저장 게시판</a></li>
+							<li style="text-align: center"><a href="deleteBoard" style="color: white">삭제 게시판</a></li>
 						</ul></li>
 				</ul>
 				<br>
@@ -157,12 +240,10 @@ ul#menu {
 	</div>
 
 
-
-
 	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-sm-12">
-				<h2 style="color: green">임시저장된 게시물</h2>
+				<h2 style="color: teal">임시저장된 게시물</h2>
 				<table class="table table-hover table-striped" id="example"
 					class="display" style="width: 50%">
 					<thead>
