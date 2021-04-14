@@ -156,7 +156,7 @@ h1 {
 	});
 </script>
 
-<!-- 완료 및 임시저장 글목록 -->
+<!-- 글목록 -->
 <script type="text/javascript">
 	$(document)
 			.ready(
@@ -194,6 +194,11 @@ h1 {
 	 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 	 */
 </script>
+
+
+
+
+
 </head>
 <body>
 	<header>

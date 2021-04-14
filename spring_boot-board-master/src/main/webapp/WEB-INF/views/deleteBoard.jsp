@@ -86,9 +86,9 @@ h1 {
 															+ "'>"
 															+ item.title
 															+ "</a>"
-															+ "<button type='button' class='btn btn-danger' style='float: right;' id = 'deleteBtn' onclick = 'location.href = 'view?idx='"
+															+ "<button type='button' class='btn btn-primary' style='float: right;' id = 'restoreBtn' onclick = 'location.href = 'view?idx='"
 															+ item.idx
-															+ "'>글삭제</button></td> </tr>"
+															+ "'>글복구</button></td> </tr>"
 												})
 										$("#listArea").append(html)
 										$('#example').DataTable();
@@ -156,16 +156,38 @@ h1 {
 				<h2 style="color: green">삭제된 게시물</h2>
 				
 				<!-- 검색 -->
-				<form class="well form-search" action="/web/saveBoard/search"
-					method="GET">
-					<div class="search">
-						<input name="keyword" type="text"
-							class="input-medium search-query" placeholder="검색어를 입력해주세요">
-						<!-- 검색어입력 -->
-						<button>검색하기</button>
+				<div class="well form-search">
+					<select name="searchType">
+						<option value="t"
+							<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
+						<option value="w"
+							<c:out value="${scri.searchType eq 'w' ? 'selected' : ''}"/>>작성자</option>
+					</select> <input type="text" name="keyword" id="keywordInput"
+						value="${scri.keyword}" />
 
-					</div>
-				</form>
+					<button id="searchBtn" type="button">검색</button>
+					<script type="text/javascript">
+						$(function() {
+							$('#searchBtn')
+									.click(
+											function() {
+												$.ajax({
+													url : "SearchboardList",
+													success : function(result) {
+														var html = "";
+														result.forEach(function(item) {
+															html += "<tr> <td><a href = 'view?idx=" + item.idx
+																	+ "'>" + item.title + "</a>"
+																	+ "</td> </tr>"
+														})
+														$("#listArea").append(html)
+														$('#example').DataTable();
+													}
+												});
+											});
+						});
+					</script>				
+				</div>
 				<!-- 검색 끝-->
 				
 				<!-- 페이지네이션 -->
