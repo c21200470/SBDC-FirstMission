@@ -201,6 +201,20 @@ h1 {
 					<li class="page-item"><a class="page-link" href="#">5</a></li>
 					<li class="page-item"><a class="page-link" href="#">Next</a></li>
 				</ul>
+				
+				<%-- <li><a href="javascript:PageMove(${paging.prevPageNo})">Previous</a></li>
+				<c:foreach var="i" begin="${paging.startPageNo}"
+					end="${paging.endPageNo}" step="1">
+					<c:choose>
+						<c:when test="${i eq paging.pageNo}">
+							<li class="active"><a href="javascript:PageMove(${i})">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="javascript:PageMove(${i})">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:foreach>
+				<li><a href="javascript:PageMove(${paging.nextPageNo})">Next</a></li> --%>
 				<!-- 페이지네이션 끝 -->
 				
 				

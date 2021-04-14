@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
+
+
+
 <html lang="en">
 <head>
 <title>인턴프로젝트</title>
@@ -48,6 +51,7 @@ header {
 h1 {
 	margin-left: 10em;
 }
+
 .nav-link {
 	color: white !important;
 }
@@ -108,7 +112,7 @@ h1 {
 <body>
 	<header>
 		<h1 style="color: white;">
-			<a href="index" style="color: white">인턴 프로젝트 게시판
+			<a href="index" style="color: white">인턴 프로젝트 게시판 
 		</h1>
 		</a> <span><h4 style="color: white;">임시 사용자</h4></span>
 	</header>
@@ -154,7 +158,7 @@ h1 {
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 style="color: green">삭제된 게시물</h2>
-				
+
 				<!-- 검색 -->
 				<div class="well form-search">
 					<select name="searchType">
@@ -171,28 +175,38 @@ h1 {
 							$('#searchBtn')
 									.click(
 											function() {
-												$.ajax({
-													url : "SearchboardList",
-													success : function(result) {
-														var html = "";
-														result.forEach(function(item) {
-															html += "<tr> <td><a href = 'view?idx=" + item.idx
-																	+ "'>" + item.title + "</a>"
-																	+ "</td> </tr>"
-														})
-														$("#listArea").append(html)
-														$('#example').DataTable();
-													}
-												});
+												$
+														.ajax({
+															url : "SearchboardList",
+															success : function(
+																	result) {
+																var html = "";
+																result
+																		.forEach(function(
+																				item) {
+																			html += "<tr> <td><a href = 'view?idx="
+																					+ item.idx
+																					+ "'>"
+																					+ item.title
+																					+ "</a>"
+																					+ "</td> </tr>"
+																		})
+																$("#listArea")
+																		.append(
+																				html)
+																$('#example')
+																		.DataTable();
+															}
+														});
 											});
 						});
-					</script>				
+					</script>
 				</div>
 				<!-- 검색 끝-->
-				
+
 				<!-- 페이지네이션 -->
 				<ul class="pagination">
-					<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item disabled"><a class="page-link"	href="#">Previous</a></li>
 					<li class="page-item active"><a class="page-link" href="#">1</a></li>
 					<li class="page-item"><a class="page-link" href="#">2</a></li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>
@@ -200,8 +214,26 @@ h1 {
 					<li class="page-item"><a class="page-link" href="#">5</a></li>
 					<li class="page-item"><a class="page-link" href="#">Next</a></li>
 				</ul>
+
+				<%-- <li><a href="javascript:PageMove(${paging.prevPageNo})">Previous</a></li>
+				<c:foreach var="i" begin="${paging.startPageNo}"
+					end="${paging.endPageNo}" step="1">
+					<c:choose>
+						<c:when test="${i eq paging.pageNo}">
+							<li class="active"><a href="javascript:PageMove(${i})">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="javascript:PageMove(${i})">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:foreach>
+				<li><a href="javascript:PageMove(${paging.nextPageNo})">Next</a></li> --%>
 				<!-- 페이지네이션 끝 -->
-				
+
+
+
+
+
 				<table class="table table-hover table-striped" id="example"
 					class="display" style="width: 50%">
 					<thead>
