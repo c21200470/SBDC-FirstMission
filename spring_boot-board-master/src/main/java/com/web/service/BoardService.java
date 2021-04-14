@@ -28,4 +28,10 @@ public class BoardService {
 	public List<Reply> getReply(int boardIdx) {
 		return m.getReply(boardIdx);
 	}
+	
+	public boolean boardDelete(int idx) {
+		return m.boardDelete(idx);
+	}
+	
+	
 }

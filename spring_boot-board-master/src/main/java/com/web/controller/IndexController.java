@@ -77,12 +77,12 @@ public class IndexController {
 	public String writeAction(HttpServletRequest req, @RequestParam("file") MultipartFile file,
 			@RequestParam("title") String title, @RequestParam("contents") String contents)
 			throws IllegalStateException, IOException {
-		String PATH = req.getSession().getServletContext().getRealPath("/resources/image");
+		String PATH = req.getSession().getServletContext().getRealPath("/") + "resources/images" ;
 		System.out.println(PATH);
 		if (!file.getOriginalFilename().isEmpty()) {
 			file.transferTo(new File(PATH + file.getOriginalFilename()));
 		}
-		s.addBoard(new Board(0, title, contents, file.getOriginalFilename()));
+		s.addBoard(new Board(0, title, contents, file.getOriginalFilename(), 0, PATH, PATH, 0, PATH));
 		return "board";
 	}
 
@@ -110,4 +110,12 @@ public class IndexController {
 		s.addReply(new Reply(0, idx, replyIdx, contents));
 		return "redirect:view?idx=" + idx;
 	}
+	
+	@RequestMapping(value = "/boardDelete", method = RequestMethod.POST)
+	public String delete(@RequestParam("idx") int idx) {
+		s.boardDelete(idx);
+		return "test";
+	}
+	
+	
 }

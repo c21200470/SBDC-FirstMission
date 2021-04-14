@@ -59,13 +59,13 @@ $(document).ready(function() {
         var html = "";
     	result.forEach(function(item){
         	html+= "<tr> <td><a href = 'view?idx=" + item.idx + "'>" + item.title + "</a>"
-        	+ "<button type='button' class='btn btn-danger' style='float: right;' id = 'deleteBtn' onclick = 'location.href = 'view?idx='" + item.idx +"'>글삭제</button></td> </tr>"
+        	+ "<button type='button' class='btn btn-danger' style='float: right;' id = 'deleteBtn' onclick = 'location.href = 'delete.do?idx='" + item.idx +"'>글삭제</button></td> </tr>"
         })
        $("#listArea").append(html)
        $('#example').DataTable();
      }});
      $("#deleteBtn").click(function(){
-    	location.href ="write";
+    	location.href ="/delete.do";
      })
 } );
 /* 

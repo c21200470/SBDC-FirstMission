@@ -14,5 +14,6 @@ public interface BoardMapper {
 	public Board getBoardOne(int idx);
 	public boolean addReply(Reply r);
 	public List<Reply> getReply(int boardIdx);
+	public boolean boardDelete(int idx);
 	
 }
