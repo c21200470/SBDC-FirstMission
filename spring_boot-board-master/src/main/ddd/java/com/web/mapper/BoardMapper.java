@@ -10,10 +10,14 @@ import com.web.domain.Reply;
 @Repository("BoardMapper")
 public interface BoardMapper {
 	public boolean addBoard(Board b);
+
 	public List<Board> getBoard();
+
 	public Board getBoardOne(int idx);
+
 	public boolean addReply(Reply r);
+
 	public List<Reply> getReply(int boardIdx);
-	public boolean boardDelete(int idx);
-	
+
+	public int BoardDelete(Long idx);
 }

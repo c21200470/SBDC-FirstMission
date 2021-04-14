@@ -11,27 +11,34 @@ import com.web.mapper.BoardMapper;
 
 @Service
 public class BoardService {
-	@Autowired private BoardMapper m;
+	@Autowired
+	private BoardMapper m;
+
 	public boolean addBoard(Board b) {
 		return m.addBoard(b);
 	}
 
-	public List<Board> getBoard(){
+	public List<Board> getBoard() {
 		return m.getBoard();
 	}
+
 	public Board getBoardOne(int idx) {
 		return m.getBoardOne(idx);
 	}
+
 	public boolean addReply(Reply r) {
 		return m.addReply(r);
 	}
+
 	public List<Reply> getReply(int boardIdx) {
 		return m.getReply(boardIdx);
 	}
-	
-	public boolean boardDelete(int idx) {
-		return m.boardDelete(idx);
+
+	public boolean BoardDelete(Long idx) {
+		int queryResult = 0;
+
+		queryResult = m.BoardDelete(idx);
+
+		return (queryResult == 1) ? true : false;
 	}
-	
-	
 }

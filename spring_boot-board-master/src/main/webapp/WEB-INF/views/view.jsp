@@ -114,11 +114,11 @@
 	$.ajax({
 		url : "boardView?idx=" + IDX,
 		success : function(result) {
-			$("#image").append(
-					'<img src="C:/Users/USER/Documents/workspace-spring-tool-suite-4-4.10.0.RELEASE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/spring_boot-board-master' + result.image
-							+ '" style="width: 100%;">');
+			 $("#image").append('<img src="resources/images/'+ result.image + '" style="width: 100%;">');
 			$("#title").text(result.title);
 			$("#contents").text(result.contents);
+			console.log(result.contents);
+			console.log(result.image);
 		}
 	});
 
