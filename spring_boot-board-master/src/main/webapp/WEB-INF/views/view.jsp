@@ -37,15 +37,12 @@
 	height: 200px;
 	background: #aaa;
 }
-
 .subReply {
 	padding-left: 50px;
 }
-
 .nav-link {
 	color: white !important;
 }
-
 .dropdown .dropdown-menu a:hover {
 	color: #000 !important;
 	background-color: #FF0000;
@@ -67,12 +64,13 @@
 				b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
 		}
 		return b;
-	}
+	} // 연구해보기
+	
+	/* 댓글관련 */
 	function drawReply(replys) {
 		$("#cnt").text("등록된 댓글 - " + replys.length)
 		var html = '';
 		html += '<form class="form-inline" action="writeReply" method="post"><input type="hidden" name="idx" value = "' + IDX + '"><input type="hidden" name="replyIdx" value = "0"><input type="text" class="form-control mb-2 mr-sm-2" id="contents" placeholder="답글" name="contents"><button type="submit" class="btn btn-primary mb-2">등록</button></form>';
-
 		replys
 				.forEach(function(reply) {
 					if (reply.replyIdx == 0) {
@@ -107,17 +105,18 @@
 					}
 				})
 	}
+	
+	
 	$.ajax({
 		url : "boardView?idx=" + IDX,
 		success : function(result) {
-			$("#image").append(
-					'<img src="resources/images/' + result.image
-							+ '" style="width: 100%;">');
+			 $("#image").append('<img src="resources/images/'+ result.image + '" style="width: 100%;">');
 			$("#title").text(result.title);
 			$("#contents").text(result.contents);
+			console.log(result.contents);
+			console.log(result.image);
 		}
 	});
-
 	$.ajax({
 		url : "replyList?idx=" + IDX,
 		success : function(replys) {
