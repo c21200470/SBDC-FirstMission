@@ -10,7 +10,10 @@
 <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token"
 	content="FqXMAnwaMTsf5yfUvdmWufX8XqLazGL59qUM3IHfb0j1fWYCDNuv4bISmEPOR4/eBdk06e7VYJT12gH+EdiXwg==" />
-
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel='stylesheet'
@@ -197,10 +200,7 @@ ul#menu {
 	 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 	 */
 </script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 <header class="navbar navbar-expand navbar-dark bg-dark bd-navbar">

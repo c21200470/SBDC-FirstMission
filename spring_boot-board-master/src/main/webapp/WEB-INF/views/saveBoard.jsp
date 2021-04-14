@@ -10,11 +10,19 @@
 <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token"
 	content="FqXMAnwaMTsf5yfUvdmWufX8XqLazGL59qUM3IHfb0j1fWYCDNuv4bISmEPOR4/eBdk06e7VYJT12gH+EdiXwg==" />
-
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel='stylesheet'
 	href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+
+
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <style>
 .bd-navbar {
@@ -81,41 +89,47 @@ ul#menu {
 }
 </style>
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				$("#writeBtn").click(function() {
-					location.href = "write";
-				})
-				$.ajax({
-					url : "boardList",
-					success : function(result) {
-						console.log(result);
-						var html = "";
-						result.forEach(function(item) {
-							html += "<tr> <td><a href = 'view?idx=" + item.idx
-									+ "'>" + item.title + "</a>" + "</td>"
-									+ "<td>" + item.contents + "</tr>"
+	$(document)
+			.ready(
+					function() {
+						$("#writeBtn").click(function() {
+							location.href = "write";
 						})
-						$("#listArea1").append(html);
-						$("#listArea2").append(html);
-						$("#listArea3").append(html);
-						$('#example').DataTable();
-					}
-				});
-				$("#deleteBtn").click(function() {
-					location.href = "write";
-				})
-			});
+						$
+								.ajax({
+									url : "boardList",
+									success : function(result) {
+										console.log(result);
+										var html = "";
+										result
+												.forEach(function(item) {
+													html += "<tr> <td><a href = 'view?idx="
+															+ item.idx
+															+ "'>"
+															+ item.title
+															+ "</a>"
+															+ "<button type='button' class='btn btn-danger' style='float: right;' id = 'deleteBtn' onclick = 'location.href = 'view?idx='"
+															+ item.idx
+															+ "'>글삭제</button></td> </tr>"
+												})
+										$("#listArea").append(html);
+										$("#listArea1").append(html);
+										$("#listArea2").append(html);
+										$("#listArea3").append(html);
+										$('#example').DataTable();
+									}
+								});
+						$("#deleteBtn").click(function() {
+							location.href = "write";
+						})
+					});
 	/* 
 	 html+= "<tr> <td><a href = 'view?idx=" + item.idx + "'>" + item.title + "</a></td> </tr>"
 	 + "<button type='button' class='btn btn-primary' align='right' id = 'deleteBtn'>글삭제</button></td> </tr>"
 	 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 	 */
 </script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 	<header class="navbar navbar-expand navbar-dark bg-dark bd-navbar">
